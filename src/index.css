@@ -64,6 +64,13 @@ fieldset{
   margin-top: 10px;
 }
 
+.validemail{
+  font-weight: bold;
+  color: red;
+  position:absolute;
+  left: 53%;
+}
+
 button{
   outline: none;
   border-radius: 20px;

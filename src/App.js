@@ -1,7 +1,19 @@
-import React from 'react';
+import React , {useState} from 'react';
 import './App.css';
+import validator from 'validator'
 
 const App = () =>{
+
+  const [emailError, setEmailError] = useState('')
+  const validateEmail = (e) => {
+    var email = e.target.value
+  
+    if (validator.isEmail(email)) {
+      setEmailError('Valid Email :)')
+    } else {
+      setEmailError('Enter valid Email!')
+    }
+  }
   return(
     <>
       <div className="main_div">
@@ -28,8 +40,10 @@ const App = () =>{
 
           <label>Email*</label>
           <br />
-          <input type="email" id="form" placeholder="mail@website.com" required/>
-          <br /><br />
+          <input type="email" id="form" placeholder="mail@website.com" onChange={(e) => validateEmail(e)} required/>
+          <br />
+          <span className="validemail"> {emailError} </span>
+          <br />
           <label>Password*</label>
           <br />
           <input type="password" id="form" minlength="8" placeholder="Min.8 character" required/>
